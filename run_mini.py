@@ -69,7 +69,7 @@ def run_mini(df):
 
         try:
             #url = df.image[index]
-            url_prompt = '4_resized.jpg'
+            url_prompt = 'https://raw.githubusercontent.com/Tommasomagma/resize_img/refs/heads/main/2.png?token=GHSAT0AAAAAACURNTLURGJJHVPPCTJKB7R4ZXMI4YA'
             answer = df.answer_fix[index]
             problem = df.problem_fix[index]
             client = OpenAI(api_key='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')

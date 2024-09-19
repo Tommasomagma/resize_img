@@ -49,8 +49,8 @@ if __name__ == '__main__':
         response = requests.get(url)
         img = Image.open(BytesIO(response.content))
         img.save(f'{i}.png')
-        half_width = img.width // 2
-        half_height = img.height // 2
+        half_width = img.width // 4
+        half_height = img.height // 4
         resized = resize(img, half_width, half_height)
         resized.save(f'{i}_resized.png')
         print(resized)
