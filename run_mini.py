@@ -17,6 +17,27 @@ warnings.filterwarnings("ignore", category=UserWarning)
 from sklearn.model_selection import train_test_split
 from resize import binary_thr, gray, resize, compress, down_sample
 
+def get_url():
+
+    url_ls = []
+
+    # Replace with your GitHub repo details
+    github_username = "Tommasomagma"
+    repo_name = "resize_img"
+    branch = "main"  # Change if you're using a different branch
+    # Path to the folder where your images are stored (relative to your local workspace)
+    local_image_folder = "resized"
+
+    # List all image files in the local folder
+    image_files = [f for f in os.listdir(local_image_folder) if f.endswith(('.png', '.jpg', '.jpeg', '.gif'))]
+
+    # Generate URLs for each image
+    for image_file in image_files:
+        image_url = f"https://raw.githubusercontent.com/{github_username}/{repo_name}/{branch}/{image_file}"
+        print(image_url)
+
+
+
 def check_mini(df):
 
     df = df[df['LLM']!='X']
@@ -69,7 +90,7 @@ def run_mini(df):
 
         try:
             #url = df.image[index]
-            url_prompt = 'https://raw.githubusercontent.com/Tommasomagma/resize_img/refs/heads/main/2.png?token=GHSAT0AAAAAACURNTLURGJJHVPPCTJKB7R4ZXMI4YA'
+            url_prompt = 'https://raw.githubusercontent.com/Tommasomagma/resize_img/refs/heads/main/2.png?token=GHSAT0AAAAAACURNTLUXWYSB6Z35APM5EAYZXMJABA'
             answer = df.answer_fix[index]
             problem = df.problem_fix[index]
             client = OpenAI(api_key='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')
